@@ -12,6 +12,7 @@ const App = () => {
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [booksPerPage] = useState(2);
+    const [search, setSearch] = useState('');
 
     useEffect(() => {
         const fetchBooks = async () => {
@@ -33,7 +34,7 @@ const App = () => {
     const paginate = pageNumber => setCurrentPage(pageNumber);
     return (
         <div className='container mt-5'>
-            <Search/>
+            <Search search={e => setSearch(e.target.value)}/>
             <Book books={currentPosts} loading={loading} />
            <Pagination
                booksPerPage={booksPerPage}

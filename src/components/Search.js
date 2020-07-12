@@ -6,7 +6,6 @@ import Declarations from '../components/Declarations'
 
 
 class Search extends React.Component {
-
     updateTextInput(event) {
         this.context.textInput = event.target.value;
         if (event.key === 'Enter')
@@ -18,7 +17,7 @@ class Search extends React.Component {
             <InputGroup>
                 <FormControl
                     type="text"
-                    placeholder="Search ..."
+                    placeholder="Search books"
                     onChange={this.updateTextInput.bind(this)}
                     onKeyDown={this.updateTextInput.bind(this)}
                 />
