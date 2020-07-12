@@ -4,13 +4,14 @@ import axios from 'axios';
 import './styles.scss';
 import Book from "./components/Book";
 import Pagination from "./components/Pagination";
+import Search from "./components/Search";
 
 const App = () => {
 
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const [booksPerPage] = useState(10);
+    const [booksPerPage] = useState(2);
 
     useEffect(() => {
         const fetchBooks = async () => {
@@ -31,13 +32,14 @@ const App = () => {
     // Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
     return (
-        <div className="container">
+        <div className='container mt-5'>
+            <Search/>
             <Book books={currentPosts} loading={loading} />
-            <Pagination
-                booksPerPage={booksPerPage}
-                totalPosts={books.length}
-                paginate={paginate}
-            />
+           <Pagination
+               booksPerPage={booksPerPage}
+               totalBooks={books.length}
+               paginate={paginate}
+           />
         </div>
     );
 }
